@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+    background: #f1f1f1;
+    transition: background-color 0.5s ease; /* Add transition for smooth background color change */
+    color: #333; /* Default text color */
+}
+
+/* Add styles for dark mode */
+body.dark-mode {
+    background: #0D1117!important; /* Override background color */
+    color: #C9C9C9 !important; /* Override text color to white in dark mode */
+}
+.card.dark-mode {
+    background: #161b22;
+    border: 1px solid #161b22;
+   
+}
+.header.dark-mode {
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+    background: #161b22;
+    border: 1px solid #161b22;
+    box-shadow: -1px 3px 15px 0 rgba(0,0,0,.06);
+    border-radius: 8px;
+}
+
+.header {
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+    background: white;
+    line-height: 0.5;
+    border: 1px solid #e8e8e8;
+    box-shadow: -1px 3px 15px 0 rgba(0,0,0,.06);
+    border-radius: 8px;
+}
+
+.leftcolumn {
+    float: left;
+    width: 75%;
+}
+
+.rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+}
+
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+}
+
+.card .fakeimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    /* border-left: 2px solid #525252; */
+    box-shadow: -1px 3px 15px 0 rgba(0,0,0,.06);
+    border-radius: 8px;
+    transition: all .5s cubic-bezier(.19,1,.22,1);
+}
+
+.card input[type="text"] {
+    width: calc(100%);
+    padding: 15px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: transparent;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+        width: 100%;
+        padding: 0;
+    }
+    .header {
+        line-height: 1.2;
+    }
+}
+
+/* New styles */
+
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.text-base-content {
+    color: var(--fallback-bc, oklch(var(--bc)/var(--tw-text-opacity)));
+}
+
+.text-opacity-60 {
+    --tw-text-opacity: 0.6;
+}
+
+.w-3 {
+    width: 0.75rem;
+}
+
+.h-3 {
+    height: 0.75rem;
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+.mr-1 {
+    margin-right: 0.25rem;
+}
+
+.bg-yellow-300 {
+    background-color: rgb(241, 224, 90);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.badge-container {
+    display: flex;
+    gap: 0; /* This will remove any space between the elements */
+}
+
+.badge-container a {
+    margin-right: 10px; /* Ensure there is no additional margin */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adjust the spacing between buttons */
+}
+  
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 60px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+.fa-github {
+    background: #2b3137;
+    color: white;
+}
+
+.fa-whatsapp {
+    background: #25d366;
+    color: white;
+}
+
+.fa-codepen {
+    background: #3d3d3e;
+    color: white;
+}
+
+.fa-code {
+    background: #006400;
+    color: white;
+}
+
+.fa-stack-overflow {
+    background: #f48024;
+    color: white;
+}
+
+/* Add CSS styles for the toggle switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px; /* Adjust as needed */
+    height: 20px; /* Adjust as needed */
+    margin-right: 10px; /* Adjust as needed */
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 20px; /* Makes it round */
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px; /* Adjust as needed */
+    width: 16px; /* Adjust as needed */
+    left: 2px; /* Adjust as needed */
+    bottom: 2px; /* Adjust as needed */
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%; /* Makes it round */
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(20px); /* Adjust as needed */
+    -ms-transform: translateX(20px); /* Adjust as needed */
+    transform: translateX(20px); /* Adjust as needed */
+  }
+  
+  #toggle-container {
+    display: flex;
+    align-items: center;
+   
+  }
+  
+  .centered {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .centered p {
+    margin: 0; /* remove default margin */
+    font-size: x-large; 
+  }
+  
+  .centered i {
+    margin-right: -10px; /* add some space between the icon and text */
+  }
+  #toggle-container label {
+    margin-right: 10px; /* Adjust the margin between the toggle switch and text */
+  }
+  #toggle-container span {
+    font-size: 16px; /* Set the font size to your desired value */
+  }
+  
