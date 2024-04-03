@@ -207,11 +207,11 @@
     <div class="card">
       <h3>Follow Me</h3>
       <div class="socialmediaicons">
-        <a href="https://www.linkedin.com/in/0xelsherif/" class="fa fa-linkedin"></a>
-        <a href="https://github.com/0xelsherif" class="fa fa-github"></a>
-        <a href="https://www.hackerrank.com/profile/0xelsherif" class="fa fa-code"></a>
-        <a href="https://stackoverflow.com/users/23931990/0xelsherif" class="fa fa-stack-overflow"></a>
-        <a href="https://codepen.io/0xelsherif" class="fa fa-codepen"></a>
+        <a href="https://www.linkedin.com/in/0xelsherif/" class="fa fa-linkedin" onclick="trackClick('LinkedIn')"></a>
+        <a href="https://github.com/0xelsherif" class="fa fa-github" onclick="trackClick('github')"></a>
+        <a href="https://www.hackerrank.com/profile/0xelsherif" class="fa fa-code" onclick="trackClick('hackerrank')"></a>
+        <a href="https://stackoverflow.com/users/23931990/0xelsherif" class="fa fa-stack-overflow" onclick="trackClick('stackoverflow')"></a>
+        <a href="https://codepen.io/0xelsherif" class="fa fa-codepen" onclick="trackClick('codepen')"></a>
         
       </div>
       
@@ -244,6 +244,12 @@
   gtag('js', new Date());
 
   gtag('config', 'G-HB3RTCNPYN');
+  function trackClick(linkName) {
+  gtag('event', 'click', {
+    'event_category': 'Link Click',
+    'event_label': linkName
+  });
+}
 </script>
 </body>
 </html>
