@@ -97,3 +97,39 @@ leftColumn.innerHTML = ''; // Clear previous content
 cardsArray.forEach(card => {
     leftColumn.appendChild(card);
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const searchInput = document.getElementById('searchInput');
+  const searchResultsContainer = document.createElement('div');
+  searchResultsContainer.classList.add('search-results');
+  searchInput.parentElement.appendChild(searchResultsContainer);
+
+  searchInput.addEventListener('input', function () {
+    const filter = searchInput.value.trim().toUpperCase();
+    const cards = document.querySelectorAll('.leftcolumn .card');
+    const results = [];
+
+    if (filter === '') {
+      searchResultsContainer.innerHTML = ''; // Clear search results if input is empty
+      return;
+    }
+
+    cards.forEach(function(card) {
+      const title = card.querySelector('h2').innerText.toUpperCase();
+      const description = card.querySelector('p').innerText.toUpperCase();
+      const isVisible = title.includes(filter) || description.includes(filter);
+
+      if (isVisible) {
+        results.push(card.outerHTML);
+      }
+    });
+
+    if (results.length > 0) {
+      searchResultsContainer.innerHTML = results.join('');
+    } else {
+      searchResultsContainer.innerHTML = '<p>No results found</p>';
+    }
+  });
+});
+
+
