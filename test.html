@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clarity API Data</title>
+</head>
+<body>
+
+<h1>Clarity API Data</h1>
+
+<div id="userData">
+  <p>Loading...</p>
+</div>
+
+<script>
+const authorizationToken = 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjAzNWI5N2UxMjIyMDRkNTM5ZmQ2ZGQ5OGJhYzQyMmYxIiwidHlwIjoiSldUIn0.eyJqdGkiOiI0NmU5MWM1YS03YzM5LTRlYmItYjgyZS1hZTgyNTg3ZDI5YWUiLCJzdWIiOiIyMjA3MDMzNTk3NzExNjI4Iiwic2NvcGUiOiJEYXRhLkV4cG9ydCIsIm5iZiI6MTcxMjA2NzA1NCwiZXhwIjo0ODY1NjY3MDU0LCJpYXQiOjE3MTIwNjcwNTQsImlzcyI6ImNsYXJpdHkiLCJhdWQiOiJjbGFyaXR5LmRhdGEtZXhwb3J0ZXIifQ.Xjwwf7ugLdVDTatmn9123_Chihkt04VkhYvOjvLAJDvhu9K-LwBG9BmyTo9jJbohNCsy5gSrcZOAp9T-G1fN5p1jrOQNf3UeNWXh1tfDPZ1ZFL12-3Xt98z-VvMlq76_JMl8NJqItUwd5PuC84TQlQmOjIdNKwsEZf_GReesUC_5-Rn3Hr5ngwUUntX6UiTdZwy3F1tUyvv-U83NHtGQq4fWJ5zChpHJ2GHPJ-RYECGyd_l6Jf4KSSNWuj-xmb3moQoJB9544r6TqAyZ06bhgRxXWm9O8FueiUv5aCM6EVHYSg4ZgmygagdoRxtYASjLa72bQ9nczmKoJGHlUOc3nQ';
+const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+
+fetch(proxyUrl + 'https://www.clarity.ms/export-data/api/v1/project-live-insights', {
+  method: 'GET',
+  headers: {
+    'Authorization': `Bearer ${authorizationToken}`
+  }
+})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Data:', data);
+    // Process the data as needed
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+</script>
+
+</body>
+</html>

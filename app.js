@@ -43,30 +43,7 @@ window.addEventListener("focus", () => {
   }, 5000);
 });
 
-
-// document.addEventListener('DOMContentLoaded', function () {
-//   const toggleSwitch = document.querySelector('#themeToggle');
-
-//   // Check the current theme on load
-//   if (localStorage.getItem('theme') === 'dark') {
-//     document.body.classList.add('dark-mode');
-//     toggleSwitch.checked = true;
-//   } else {
-//     document.body.classList.remove('dark-mode');
-//     toggleSwitch.checked = false;
-//   }
-
-//   // Switch theme dynamically
-//   toggleSwitch.addEventListener('change', function () {
-//     if (this.checked) {
-//       document.body.classList.add('dark-mode');
-//       localStorage.setItem('theme', 'dark');
-//     } else {
-//       document.body.classList.remove('dark-mode');
-//       localStorage.setItem('theme', 'light');
-//     }
-//   });
-// });
+// Dark mode
 document.addEventListener('DOMContentLoaded', function () {
   const toggleSwitch = document.querySelector('#themeToggle');
 
@@ -98,4 +75,25 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleDarkMode(isDarkMode);
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   });
+});
+
+// Sort by Date 
+// Get all card elements
+const cards = document.querySelectorAll('.leftcolumn .card');
+
+// Convert NodeList to Array
+const cardsArray = Array.from(cards);
+
+// Sort cards based on the creation date
+cardsArray.sort((a, b) => {
+    const dateA = new Date(a.querySelector('h5').textContent.replace('Created on, ', ''));
+    const dateB = new Date(b.querySelector('h5').textContent.replace('Created on, ', ''));
+    return dateB - dateA;
+});
+
+// Re-append sorted cards to the leftcolumn
+const leftColumn = document.querySelector('.leftcolumn');
+leftColumn.innerHTML = ''; // Clear previous content
+cardsArray.forEach(card => {
+    leftColumn.appendChild(card);
 });
