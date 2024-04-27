@@ -67,7 +67,7 @@ body.dark-mode {
 
 .card {
     background-color: white;
-    padding: 20px;
+    padding: 16px;
     margin-top: 20px;
     background: #fff;
     border: 1px solid #e8e8e8;
@@ -214,7 +214,10 @@ body.dark-mode {
     background: #f48024;
     color: white;
 }
-
+.fa-twitter {
+    background: #1DA1F2;
+    color: white;
+}
 /* Add CSS styles for the toggle switch */
 .switch {
     position: relative;
